@@ -1,4 +1,4 @@
-package com.dfinite.sfgpetclinic.model;
+package com.dfinite.sfgpetclinic.model.model;
 
 public class Person {
 
