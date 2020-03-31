@@ -1,4 +1,4 @@
 package com.dfinite.sfgpetclinic.model;
 
-public class PetType {
+public class PetType extends BaseEntity {
 }
