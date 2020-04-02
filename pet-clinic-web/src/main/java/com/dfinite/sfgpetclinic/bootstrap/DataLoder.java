@@ -4,22 +4,22 @@ import com.dfinite.sfgpetclinic.model.Owner;
 import com.dfinite.sfgpetclinic.model.Vet;
 import com.dfinite.sfgpetclinic.services.OwnerService;
 import com.dfinite.sfgpetclinic.services.VetService;
-import com.dfinite.sfgpetclinic.services.map.OwnerServiceMap;
-import com.dfinite.sfgpetclinic.services.map.VetServiceMap;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoder implements CommandLineRunner {
 
-    private static OwnerService ownerService;
-    private static VetService vetService;
+    private final OwnerService ownerService;
+    private final VetService vetService;
 
-    public DataLoder()
+    public DataLoder(OwnerService ownerService, VetService vetService)
     {
-        ownerService=new OwnerServiceMap();
-        vetService=new VetServiceMap();
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
+
+
     @Override
     public void run(String... args) throws Exception {
 
