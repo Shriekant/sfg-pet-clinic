@@ -1,11 +1,11 @@
 package com.dfinite.sfgpetclinic.services.map;
 
 import com.dfinite.sfgpetclinic.model.Owner;
-import com.dfinite.sfgpetclinic.services.CrudService;
+import com.dfinite.sfgpetclinic.services.OwnerService;
 
 import java.util.Set;
 
-public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements CrudService<Owner, Long> {
+public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements OwnerService{
 
 
     @Override
@@ -34,5 +34,10 @@ public class OwnerServiceMap extends AbstractMapService<Owner,Long> implements C
     public void deleteById(Long aLong) {
 
         super.deleteById(aLong);
+    }
+
+    @Override
+    public Owner findByLastName(String lastName) {
+        return null;
     }
 }
