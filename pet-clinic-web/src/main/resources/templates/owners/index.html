@@ -5,7 +5,25 @@
     <title>Title</title>
 </head>
 <body>
+    <!--@thymesVar id="owner" type="com.dfinite.sfgpetclinic.model.owner"*/-->
     <h1 th:text="'List of owners'">owners List</h1>
 
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>First Name</th>
+            <th>last Name</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="owner : ${owners}">
+            <td th:text="${owner?.id}">1</td>
+            <td th:text="${owner?.firstName}">joe</td>
+            <td th:text="${owner?.lastname}">Black</td>
+        </tr>
+        </tbody>
+
+    </table>
 </body>
 </html>

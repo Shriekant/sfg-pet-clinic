@@ -31,9 +31,9 @@ public class DataLoder implements CommandLineRunner {
         ownerService.Save(owner1);
 
         Owner owner2 = new Owner();
-        owner1.setId(2L);
-        owner1.setFirstName("Mike");
-        owner1.setLastname("Ross");
+        owner2.setId(2L);
+        owner2.setFirstName("Mike");
+        owner2.setLastname("Ross");
 
         ownerService.Save(owner2);
 
