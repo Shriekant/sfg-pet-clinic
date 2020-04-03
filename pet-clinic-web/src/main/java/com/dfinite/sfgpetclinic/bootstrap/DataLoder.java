@@ -46,7 +46,7 @@ public class DataLoder implements CommandLineRunner {
         vetService.Save(vet1);
 
         Vet vet2 = new Vet();
-        vet2.setId(1L);
+        vet2.setId(2L);
         vet2.setFirstName("Raju");
         vet2.setLastname("Shrivastav");
         vetService.Save(vet2);
