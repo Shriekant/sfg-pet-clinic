@@ -29,7 +29,7 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
 
     @Override
     public Vet Save(Vet object) {
-        return save(object.getId(),object);
+        return save(object);
     }
 
     @Override
