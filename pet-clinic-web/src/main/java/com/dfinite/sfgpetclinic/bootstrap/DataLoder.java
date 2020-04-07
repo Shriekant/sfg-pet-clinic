@@ -5,7 +5,6 @@ import com.dfinite.sfgpetclinic.services.OwnerService;
 import com.dfinite.sfgpetclinic.services.PetTypeService;
 import com.dfinite.sfgpetclinic.services.SpecialityService;
 import com.dfinite.sfgpetclinic.services.VetService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +18,7 @@ public class DataLoder implements CommandLineRunner {
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
 
-    @Autowired
+
     public DataLoder(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService)
     {
         this.ownerService = ownerService;
@@ -63,7 +62,6 @@ public class DataLoder implements CommandLineRunner {
 
 
         Owner owner1 = new Owner();
-        owner1.setId(1L);
         owner1.setFirstName("shrikant");
         owner1.setLastname("Kundur");
         owner1.setAddress("123 baker street");
@@ -72,15 +70,15 @@ public class DataLoder implements CommandLineRunner {
 
         Pet shrikantsPet = new Pet();
         shrikantsPet.setPetType(savedDogType);
+        shrikantsPet.setOwner(owner1);
         shrikantsPet.setBirthDate(LocalDate.now());
         shrikantsPet.setName("rosco");
 
-        owner1.getPets().add(shrikantsPet);
 
+        owner1.getPets().add(shrikantsPet);
         ownerService.Save(owner1);
 
         Owner owner2 = new Owner();
-        owner2.setId(2L);
         owner2.setFirstName("Mike");
         owner2.setLastname("Ross");
         owner2.setAddress("westeria lane");
@@ -89,10 +87,10 @@ public class DataLoder implements CommandLineRunner {
 
         Pet miekspet = new Pet();
         miekspet.setName("husky");
+        miekspet.setOwner(owner2);
         miekspet.setPetType(savedCatType);
         miekspet.setBirthDate(LocalDate.now());
-
-        owner2.getPets().add(miekspet);
+//        owner2.getPets().add(miekspet);
 
         ownerService.Save(owner2);
 

@@ -10,11 +10,12 @@ public class VetController {
 
     private final VetService vetService;
 
-    public VetController(VetService vetService) {
+    public VetController(VetService vetService)
+    {
         this.vetService = vetService;
     }
 
-    @RequestMapping({"/vets","/vets/index.html","/vets/index"})
+    @RequestMapping({"/vets","/vets/index","/vets/index.html","/vets.html"})
     public String index(Model model)
     {
         model.addAttribute("vets",vetService.findAll());
