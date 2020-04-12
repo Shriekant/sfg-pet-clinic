@@ -1,10 +1,7 @@
 package com.dfinite.sfgpetclinic.bootstrap;
 
 import com.dfinite.sfgpetclinic.model.*;
-import com.dfinite.sfgpetclinic.services.OwnerService;
-import com.dfinite.sfgpetclinic.services.PetTypeService;
-import com.dfinite.sfgpetclinic.services.SpecialityService;
-import com.dfinite.sfgpetclinic.services.VetService;
+import com.dfinite.sfgpetclinic.services.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -17,14 +14,17 @@ public class DataLoder implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
+    private final VisitService visitService;
 
 
-    public DataLoder(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService)
+    public DataLoder(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+                     SpecialityService specialityService, VisitService visitService)
     {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService=petTypeService;
         this.specialityService = specialityService;
+        this.visitService=visitService;
     }
 
 
@@ -38,7 +38,8 @@ public class DataLoder implements CommandLineRunner {
         }
     }
 
-    private void loadData() {
+    private void loadData()
+    {
         PetType dog = new PetType();
         dog.setName("jocky");
         PetType savedDogType = petTypeService.Save(dog);
@@ -59,7 +60,6 @@ public class DataLoder implements CommandLineRunner {
         Speciality dentistry = new Speciality();
         radiology.setDescription("dentistry");
         Speciality savedDentistry = specialityService.Save(dentistry);
-
 
         Owner owner1 = new Owner();
         owner1.setFirstName("shrikant");
@@ -90,11 +90,16 @@ public class DataLoder implements CommandLineRunner {
         miekspet.setOwner(owner2);
         miekspet.setPetType(savedCatType);
         miekspet.setBirthDate(LocalDate.now());
-//        owner2.getPets().add(miekspet);
+        owner2.getPets().add(miekspet);
 
         ownerService.Save(owner2);
-
         System.out.println("Loded owner");
+
+        Visit visit = new Visit();
+        visit.setDate(LocalDate.now());
+        visit.setPet(miekspet);
+        visit.setDescription("snezzy kitty");
+        visitService.Save(visit);
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
