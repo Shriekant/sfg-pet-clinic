@@ -1,9 +1,16 @@
 package com.dfinite.sfgpetclinic.model;
 
+import lombok.*;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
+@Setter
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 @Table(name="speciality")
 public class Speciality extends BaseEntity {
@@ -11,11 +18,4 @@ public class Speciality extends BaseEntity {
     @Column(name="description")
     private String Description;
 
-    public String getDescription() {
-        return Description;
-    }
-
-    public void setDescription(String description) {
-        Description = description;
-    }
 }
