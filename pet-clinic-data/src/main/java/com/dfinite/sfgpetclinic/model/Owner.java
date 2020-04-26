@@ -1,9 +1,6 @@
 package com.dfinite.sfgpetclinic.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.HashSet;
@@ -11,8 +8,10 @@ import java.util.Set;
 
 @Setter
 @Getter
+@ToString
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Entity
 @Table(name= "owners")
 public class Owner extends Person {
@@ -26,7 +25,5 @@ public class Owner extends Person {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private Set<Pet> pets = new HashSet<>();
 
-    public Owner(Long id,String firstName, String lastname,String address, String City) {
-        super(firstName, lastname);
-    }
+
 }
