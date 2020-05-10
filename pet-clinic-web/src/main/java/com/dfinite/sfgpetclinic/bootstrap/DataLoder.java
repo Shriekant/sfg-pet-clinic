@@ -63,7 +63,7 @@ public class DataLoder implements CommandLineRunner {
 
         Owner owner1 = new Owner();
         owner1.setFirstName("shrikant");
-        owner1.setLastname("Kundur");
+        owner1.setLastName("Kundur");
         owner1.setAddress("123 baker street");
         owner1.setCity("sydney");
         owner1.setTelephone("123456789");
@@ -80,7 +80,7 @@ public class DataLoder implements CommandLineRunner {
 
         Owner owner2 = new Owner();
         owner2.setFirstName("Mike");
-        owner2.setLastname("Ross");
+        owner2.setLastName("Ross");
         owner2.setAddress("westeria lane");
         owner2.setCity("NewYork");
         owner2.setTelephone("789956423");
@@ -103,13 +103,13 @@ public class DataLoder implements CommandLineRunner {
 
         Vet vet1 = new Vet();
         vet1.setFirstName("Sam");
-        vet1.setLastname("Axe");
+        vet1.setLastName("Axe");
         vet1.getSpecialities().add(savedRadiology);
         vetService.Save(vet1);
 
         Vet vet2 = new Vet();
         vet2.setFirstName("Raju");
-        vet2.setLastname("Shrivastav");
+        vet2.setLastName("Shrivastav");
         vet2.getSpecialities().add(savedSurgery);
         vetService.Save(vet2);
 

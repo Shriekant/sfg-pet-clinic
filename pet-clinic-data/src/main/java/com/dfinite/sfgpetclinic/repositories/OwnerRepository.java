@@ -3,7 +3,13 @@ package com.dfinite.sfgpetclinic.repositories;
 import com.dfinite.sfgpetclinic.model.Owner;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface OwnerRepository extends CrudRepository<Owner,Long> {
 
-    Owner findByLastname(String lastname);
+    Owner findByLastName(String lastName);
+
+    List<Owner> findAllByLastNameLike(String lastName);
+
+
 }

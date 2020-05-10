@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{fragments/layout::(~(::body},'owners'))}">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+        <h2>Owners</h2>
+
+        <table id="vets" class="table table-striped">
+            <thead>
+            <tr>
+                <th style="...">Name</th>
+                <th style="...">Address</th>
+                <th style="...">City</th>
+                <th style="...">Pet</th>
+                <th>Pets</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            <!--/*@thymesVar id="owner" type="com.dfinite.sfgpetclinic.model.Owner"*/-->
+
+            <!--/*@thymesVar id="selections" type="com.dfinite.sfgpetclinic"*/-->
+            <tr th:each="owner : ${selections}">
+                    <td>
+
+                        <a th:href="@{/ownres/__${owner.id}__}" th:text="${owner.firstName +'  '+ owner.lastname}"/></a>
+                    </td>
+                    <td th:text="${owner.address}"></td>
+                    <td th:text="${owner.city}"></td>
+                    <td th:text="${owner.telephone}"></td>
+                    <td><span th:each="pet : ${owner.pets}" th:text="${pet.name}"></span></td>
+                </tr>
+            </tbody>
+
+        </table>
+</body>
+</html>
