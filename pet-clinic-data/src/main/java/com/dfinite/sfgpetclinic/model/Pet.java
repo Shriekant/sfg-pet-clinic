@@ -12,7 +12,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-@Builder
 @Entity
 @Table(name="pets")
 public class Pet extends BaseEntity {
@@ -33,6 +32,20 @@ public class Pet extends BaseEntity {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private Set<Visit> visitSet= new HashSet<>();
 
+    @Builder
+    public Pet(Long id,String name,PetType petType,Owner owner,LocalDate birthDate,Set<Visit> visitSet)
+    {
+        super(id);
+        this.name=name;
+        this.petType=petType;
+        this.owner=owner;
+        this.birthDate=birthDate;
 
+        if(visitSet == null || visitSet.size()>0)
+        {
+            this.visitSet=visitSet;
+        }
+
+    }
 
 }
