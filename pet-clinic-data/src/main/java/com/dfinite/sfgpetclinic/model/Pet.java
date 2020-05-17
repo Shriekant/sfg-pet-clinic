@@ -11,7 +11,6 @@ import java.util.Set;
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Entity
 @Table(name="pets")
 public class Pet extends BaseEntity {

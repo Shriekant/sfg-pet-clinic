@@ -52,8 +52,8 @@ public class PetControllerTest {
         owner=Owner.builder().id(1l).build();
 
         petTypes= new HashSet<>();
-        petTypes.add(PetType.builder().id(1l).build());
-        petTypes.add(PetType.builder().id(2l).build());
+        petTypes.add(PetType.builder().id(1l).name("Dog").build());
+        petTypes.add(PetType.builder().id(2l).name("Cat").build());
 
         mockMvc= MockMvcBuilders.standaloneSetup(petController).build();
     }
@@ -105,10 +105,10 @@ public class PetControllerTest {
         when(ownerService.findById(anyLong())).thenReturn(owner);
         when(petTypeService.findAll()).thenReturn(petTypes);
 
-        mockMvc.perform(MockMvcRequestBuilders.post("/owners/1/pets/edit"))
+        mockMvc.perform(MockMvcRequestBuilders.post("/owners/1/pets/2/edit"))
                 .andExpect(status().is3xxRedirection())
                 .andExpect(view().name("redirect:/owners/1"));
 
-        verify(petTypeService).Save(any());
+        verify(petService).Save(any());
     }
 }

@@ -1,13 +1,13 @@
 package com.dfinite.sfgpetclinic.services.map;
 
 import com.dfinite.sfgpetclinic.model.Owner;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 class OwnerServiceMapTest {
@@ -23,7 +23,7 @@ class OwnerServiceMapTest {
 
         ownerServiceMap= new OwnerServiceMap(new PetServiceMap(),new PetTypeMapService());
 
-      //  ownerServiceMap.save(Owner.builder().id(ownerId).lastName(lastName).build());
+        ownerServiceMap.save(Owner.builder().id(ownerId).lastName(lastName).build());
 
     }
 
@@ -84,7 +84,7 @@ class OwnerServiceMapTest {
 
         Owner smith = ownerServiceMap.findByLastName(lastName);
 
-        assertNotNull(smith);
+        Assertions.assertNotNull(smith);
 
         assertEquals(ownerId,smith.getId());
 
