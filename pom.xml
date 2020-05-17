@@ -21,7 +21,7 @@
     <description>SFG pet clinic project</description>
 
     <properties>
-        <java.version>11</java.version>
+        <java.version>12</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <jaxb.version>2.3.0</jaxb.version>
