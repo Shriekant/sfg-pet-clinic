@@ -10,16 +10,22 @@
     <table class="table table-striped"  >
         <thead>
             <tr>
-                <th>Id</th>
-                <th>firstName</th>
-                <th>lastname</th>
+                <th>Name</th>
+                <th>Specialities</th>
+
             </tr>
         </thead>
         <tbody>
             <tr th th:each="vet : ${vets}">
-                <td th:text="${vet.id}"></td>
-                <td th:text="${vet.firstName}"></td>
-                <td th:text="${vet.lastname}"></td>
+                <td th:text="${vet.firstName +' '+vet.lastName}"></td>
+                <td><span th:each="speciality : ${vet.specialities}"
+                    th:text="${speciality.Description +' '}"/>
+                    <span
+                            th:if="${vet?.specialities?.size() == 0}">none</span>
+
+                </span>
+
+                </td>
             </tr>
         </tbody>
     </table>
